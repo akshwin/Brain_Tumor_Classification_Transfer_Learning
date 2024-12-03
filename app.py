@@ -4,12 +4,10 @@ from tensorflow.keras.utils import load_img,img_to_array
 import numpy as np 
 from keras.models import load_model 
 
-
 model = load_model ("brain_tumor.h5")
 labels ={0:'Glioma',1:'Meningioma',2:'Notumor',3:'Pituitary'}
 tumor = {'Glioma','Meningioma','Pituitary'}
 notumor = {'Notumor'}
-
 
 def processed_img(img_path):
     img=load_img(img_path,target_size=(224,224,3))
@@ -24,8 +22,14 @@ def processed_img(img_path):
     return res.capitalize()
 
 def run():
-    st.title("TUMOR DETECTION IN BRAIN 🧠")
+    st.title("Brain Tumor Classifier 🧠")
     st.subheader("Upload the MRI Image:")
+    
+    st.sidebar.header("About Brain Tumor Classifier :")
+    st.sidebar.write("The project is developed using CNN Arcitectures such as VGG-16, InveptionNet, XceptionNet and DenseNet121.")
+    st.sidebar.write("The different types of tumor that the model identifies are Glioma , Meningioma , Pituitary")
+    st.sidebar.write("The model acheived an accuracy of 95.3% when Xceptionnet is used.")
+
     img_file = st.file_uploader("Choose an image",type=['jpg','jpeg','png'])
 
     if img_file is not None :
@@ -42,5 +46,4 @@ def run():
                 st.info("**Predicted tumor in the brain is "+  result+" Tumor**")
             else :
                 st.success('**NO TUMOR!!**')
-                st.balloons()
 run()
