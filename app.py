@@ -25,9 +25,9 @@ def run():
     st.title("Brain Tumor Classifier 🧠")
     st.subheader("Upload the MRI Image:")
     
-    st.sidebar.header(" 📌 About the projet :")
+    st.sidebar.header("About the projet :")
     st.sidebar.write("📌 The project is developed using CNN Arcitectures such as VGG-16, InveptionNet, XceptionNet and DenseNet121.")
-    st.sidebar.write("'📌 The different types of tumor that the model identifies are Glioma , Meningioma , Pituitary")
+    st.sidebar.write("📌 The different types of tumor that the model identifies are Glioma , Meningioma , Pituitary")
     st.sidebar.write("📌 The model acheived an accuracy of 95.3% when XceptionNet is used.")
 
     img_file = st.file_uploader("Choose an image",type=['jpg','jpeg','png'])
