@@ -37,7 +37,7 @@ def run():
         st.image(img)
         save_image_path = './upload_image/'+img_file.name
         with open(save_image_path,"wb") as f:
-            f.write(img_file.getbuffer())
+            f.write(img_file.getbuffer())   
 
         if img_file is not None :
             result = processed_img(save_image_path)
