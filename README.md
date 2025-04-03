@@ -18,7 +18,6 @@ Total images: **7023**
 ## Approach
 This project utilizes **transfer learning** with pre-trained Convolutional Neural Networks (CNNs). The following architectures are evaluated:
 - **VGG16**
-- **ResNet50**
 - **InceptionV3**
 - **Xception**
 - **DenseNet121**
@@ -48,7 +47,6 @@ To run the project, follow these steps:
 - Python 3.x
 - TensorFlow/Keras
 - NumPy
-- OpenCV
 - Matplotlib
 - Scikit-learn
 
@@ -80,8 +78,6 @@ pip install -r requirements.txt
 ## Results
 The best-performing model is **[insert best model name]**, achieving:
 - Accuracy: **96%**
-- Precision: **XX%**
-- Recall: **XX%**
 
 ## Future Work
 - Experiment with additional CNN architectures
