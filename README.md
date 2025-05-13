@@ -7,15 +7,17 @@ This is a **Streamlit-based web application** that uses a **deep learning model*
 * **Pituitary Tumor**
 * **No Tumor**
 
-The app provides an intuitive interface to upload an MRI scan and receive instant predictions powered by a trained **CNN model**.
+The app provides an intuitive interface to upload an MRI scan and receive instant predictions powered by a trained **CNN model** created using transfer learning.
 
 ---
 
-##  Model Architecture
+##  🏛️ Model Architecture
 The deep learning model follows this architecture:
 
 
 Input image → CNN base layers → Flatten → Dense layers → Output class
+
+---
 
 ## 🚀 Demo
 
