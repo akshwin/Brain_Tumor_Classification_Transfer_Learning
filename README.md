@@ -1,4 +1,4 @@
-# 🧠 Brain Tumor Detection Web App
+# 🧠 Brain Tumor Classification Using Transfer Learning 
 
 This is a **Streamlit-based web application** that uses a **deep learning model** to classify brain tumors from MRI scans. The model can detect four classes:
 
@@ -11,8 +11,15 @@ The app provides an intuitive interface to upload an MRI scan and receive instan
 
 ---
 
+##  Model Architecture
+The deep learning model follows this architecture:
+
+
+Input image → CNN base layers → Flatten → Dense layers → Output class
+
 ## 🚀 Demo
 
+📍 Live Demo: brain-tumor-classifier-app.streamlit.app
 > Upload an MRI image, and the AI will tell you whether it shows a tumor — and if so, what kind!
 
 ---
@@ -115,7 +122,3 @@ Developed by **Akshwin T**
 * Open-source medical imaging datasets (Figshare, Br35H, SARTAJ, etc.)
 * TensorFlow/Keras community
 * Streamlit for rapid web prototyping
-
----
-
-Let me know if you want a version with deployment instructions (Streamlit Cloud, Heroku, etc.) or a license section.

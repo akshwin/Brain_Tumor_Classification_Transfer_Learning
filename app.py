@@ -29,7 +29,7 @@ def run():
     
     # Title and Description
     st.markdown(
-        "<h1 style='text-align: center; color: #4CAF50;'>🧠 Brain Tumor Detection</h1>", 
+        "<h1 style='text-align: center; color: #4CAF50;'>🧠 Brain Tumor Classification </h1>", 
         unsafe_allow_html=True
     )
     st.markdown(
@@ -53,7 +53,7 @@ def run():
               - XceptionNet  
               - InceptionNet  
               - DenseNet121  
-            - **Best Accuracy**: 95.3% (XceptionNet)
+            - **Best Accuracy**: 95.3% (VGGG-16)
             """)
 
         with st.expander("📂 Classes Detected"):
