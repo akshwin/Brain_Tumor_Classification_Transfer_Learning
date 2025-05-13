@@ -1,93 +1,121 @@
-# Brain Tumor Classification using Transfer Learning
+# 🧠 Brain Tumor Detection Web App
 
-## Overview
-This project aims to classify brain tumors from MRI scans using deep learning techniques, specifically leveraging transfer learning. The model is trained on a dataset containing MRI images classified into four categories: **glioma, meningioma, pituitary tumor, and no tumor**. 
+This is a **Streamlit-based web application** that uses a **deep learning model** to classify brain tumors from MRI scans. The model can detect four classes:
 
-## Dataset
-The dataset used in this project is a combination of:
-- **Figshare dataset**
-- **SARTAJ dataset**
-- **Br35H dataset**
+* **Glioma Tumor**
+* **Meningioma Tumor**
+* **Pituitary Tumor**
+* **No Tumor**
 
-Total images: **7023**
-- Glioma
-- Meningioma
-- Pituitary
-- No Tumor (extracted from Br35H dataset)
+The app provides an intuitive interface to upload an MRI scan and receive instant predictions powered by a trained **CNN model**.
 
-## Approach
-This project utilizes **transfer learning** with pre-trained Convolutional Neural Networks (CNNs). The following architectures are evaluated:
-- **VGG16**
-- **InceptionV3**
-- **Xception**
-- **DenseNet121**
+---
 
-## Methodology
-1. **Data Preprocessing**
-   - Image resizing to match input size of pre-trained models
-   - Normalization
-   - Data augmentation to improve generalization
-   
-2. **Model Training**
-   - Pre-trained CNN architectures are used as feature extractors
-   - Fully connected layers are added for classification
-   - Fine-tuning is performed on selected layers
-   
-3. **Evaluation Metrics**
-   - Accuracy
-   - Precision
-   - Recall
-   - F1-score
-   - Confusion Matrix
+## 🚀 Demo
 
-## Installation
-To run the project, follow these steps:
+> Upload an MRI image, and the AI will tell you whether it shows a tumor — and if so, what kind!
 
-### Requirements
-- Python 3.x
-- TensorFlow/Keras
-- NumPy
-- Matplotlib
-- Scikit-learn
+---
 
-### Setup
-```sh
-# Clone the repository
-git clone https://github.com/your-repo/brain-tumor-classification.git
-cd brain-tumor-classification
+## 🔍 Features
 
-# Install dependencies
-pip install -r requirements.txt
+* 🎯 **High Accuracy**: Best-performing model achieved **95.3% accuracy** (XceptionNet).
+* 🖼 **Image Upload**: Upload MRI scans in `.jpg`, `.jpeg`, or `.png` formats.
+* 🤖 **Deep Learning Based**: Built using **Keras/TensorFlow** with **Transfer Learning**.
+* 📊 **Confidence Score**: Displays prediction confidence to gauge model certainty.
+* 📁 **Clean UI**: Minimalistic and informative layout with sidebar information.
+
+---
+
+## 🧠 Model Details
+
+* **Architectures Evaluated**:
+
+  * VGG16
+  * XceptionNet
+  * InceptionNet
+  * DenseNet121
+* **Best Model**: XceptionNet with **95.3%** accuracy
+* **Input Size**: 224x224 pixels
+* **Output Classes**: Glioma, Meningioma, Pituitary, No Tumor
+
+---
+
+## 📂 Dataset
+
+* Aggregated from **public medical MRI datasets**
+* Preprocessed, augmented, and resized to 224x224
+* Over **7000 labeled images**
+
+---
+
+## 🛠 Tech Stack
+
+* Python
+* Streamlit
+* TensorFlow / Keras
+* PIL, NumPy
+* Web deployment (can be done via Streamlit Sharing, Render, or Heroku)
+
+---
+
+## 📦 Installation
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/yourusername/brain-tumor-classifier.git
+   cd brain-tumor-classifier
+   ```
+
+2. **Install required packages:**
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. **Place your trained model** (`brain_tumor.h5`) in the root directory.
+
+4. **Run the Streamlit app:**
+
+   ```bash
+   streamlit run app.py
+   ```
+
+---
+
+## 📁 Folder Structure
+
+```
+brain-tumor-classifier/
+├── app.py                # Main Streamlit application
+├── brain_tumor.h5        # Trained model (not included in repo)
+├── requirements.txt      # Python dependencies
+└── upload_image/         # Temporary folder for uploaded images
 ```
 
-## Usage
-1. Place the dataset in the appropriate folder.
-2. Run the training script:
-   ```sh
-   python train.py
-   ```
-3. Evaluate the model:
-   ```sh
-   python evaluate.py
-   ```
-4. Predict on a new MRI image:
-   ```sh
-   python predict.py --image path/to/image.jpg
-   ```
+---
 
-## Results
-The best-performing model is **[insert best model name]**, achieving:
-- Accuracy: **96%**
+## 📧 Contact
 
-## Future Work
-- Experiment with additional CNN architectures
-- Hyperparameter tuning for further performance improvement
-- Deploy as a web-based application for real-world use
+Developed by **Akshwin T**
 
-## Acknowledgments
-- Research papers on transfer learning and medical image classification
-- The authors of the datasets used
+📬 Email: [akshwint.2003@gmail.com](mailto:akshwint.2003@gmail.com)
 
-## License
-This project is licensed under the MIT License. See the LICENSE file for details.
+---
 
+## ⚠️ Disclaimer
+
+> This application is intended for **educational and research purposes only**. It is not a replacement for professional medical advice or diagnosis.
+
+---
+
+## 🌟 Acknowledgements
+
+* Open-source medical imaging datasets (Figshare, Br35H, SARTAJ, etc.)
+* TensorFlow/Keras community
+* Streamlit for rapid web prototyping
+
+---
+
+Let me know if you want a version with deployment instructions (Streamlit Cloud, Heroku, etc.) or a license section.
