@@ -25,7 +25,7 @@ def processed_img(img_path):
 
 # Main App Function
 def run():
-    st.set_page_config(page_title="Brain Tumor Classifier", layout="centered")
+    st.set_page_config(page_title="Brain Tumor Classifier", layout="centered",page_icon="🧠")
     
     # Title and Description
     st.markdown(
