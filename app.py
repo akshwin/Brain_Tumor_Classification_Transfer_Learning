@@ -75,20 +75,24 @@ def run():
         st.markdown("📬 Contact: [akshwint.2003@gmail.com](mailto:akshwint.2003@gmail.com)")
 
     # Upload or Use Sample Image
-    st.markdown("## 📤 Upload an MRI Image or Use Sample")
-    img_file = st.file_uploader("Choose an image", type=['jpg', 'jpeg', 'png'])
-    use_sample = st.checkbox("🔁 Use a Sample MRI Image")
+    st.markdown("## 📤 Upload an MRI Image")
+    img_file = st.file_uploader("Choose a JPG, JPEG, or PNG file", type=['jpg', 'jpeg', 'png'])
 
-    if img_file is not None or use_sample:
+    st.markdown("### OR")
+    use_sample = st.button("📷 Use Sample Image")
+
+    if img_file or use_sample:
         if use_sample:
             sample_path = "upload_image/tumor-g.jpg"  # Ensure this file exists
+            if not os.path.exists(sample_path):
+                st.error("❌ Sample image not found. Please ensure 'tumor-g.jpg' exists in the 'upload_image' folder.")
+                return
             save_path = sample_path
-            st.image(Image.open(sample_path), caption='🖼 Sample MRI Scan', width=300)
+            st.image(Image.open(save_path), caption='🖼 Sample MRI Scan', width=300)
         else:
             upload_dir = "./upload_image"
             os.makedirs(upload_dir, exist_ok=True)
             save_path = os.path.join(upload_dir, img_file.name)
-
             with open(save_path, "wb") as f:
                 f.write(img_file.getbuffer())
 
@@ -96,7 +100,7 @@ def run():
             with col2:
                 st.image(Image.open(save_path), caption='🖼 Uploaded MRI Scan', width=300)
 
-        # Make prediction
+        # Prediction
         with st.spinner("🧠 Analyzing the image..."):
             result, confidence = processed_img(save_path)
 
@@ -108,7 +112,7 @@ def run():
 
         st.info(f"📊 **Confidence Score: {confidence}%**")
 
-        # Clean up uploaded file
+        # Remove uploaded image to keep folder clean
         if not use_sample and os.path.exists(save_path):
             os.remove(save_path)
 
