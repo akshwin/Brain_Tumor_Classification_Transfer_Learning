@@ -110,7 +110,7 @@ def run():
         else:
             st.success("✅ **No Tumor Detected**")
 
-        st.info(f"📊 **Confidence Score: {confidence}%**")
+        st.info(f"📊 **Confidence Score: {round(confidence, 2)}%**")
 
         # Remove uploaded image to keep folder clean
         if not use_sample and os.path.exists(save_path):
