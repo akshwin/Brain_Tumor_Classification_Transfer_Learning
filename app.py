@@ -19,7 +19,7 @@ def processed_img(img_path):
     img = np.expand_dims(img, axis=0)
     prediction = model.predict(img)[0]
     predicted_class = np.argmax(prediction)
-    confidence = round(np.max(prediction) * 100, 2)
+    confidence = round(np.max(prediction) * 100, 2)  # Confidence rounded to 2 decimals
     label = labels[predicted_class]
     return label.capitalize(), confidence
 
@@ -83,7 +83,7 @@ def run():
 
     if img_file or use_sample:
         if use_sample:
-            sample_path = "upload_image/tumor-g.jpg"  # Ensure this file exists
+            sample_path = "upload_image/tumor-g.jpg"  # This is your sample image path
             if not os.path.exists(sample_path):
                 st.error("❌ Sample image not found. Please ensure 'tumor-g.jpg' exists in the 'upload_image' folder.")
                 return
@@ -94,7 +94,7 @@ def run():
             with col2:
                 st.image(Image.open(save_path), caption='🖼 Sample MRI Scan', width=300)
         else:
-            upload_dir = "./upload_image"
+            upload_dir = "./static/upload"
             os.makedirs(upload_dir, exist_ok=True)
             save_path = os.path.join(upload_dir, img_file.name)
             with open(save_path, "wb") as f:
@@ -115,7 +115,7 @@ def run():
         else:
             st.success("✅ **No Tumor Detected**")
 
-        st.info(f"📊 **Confidence Score: {confidence}%**")  # Already rounded to 2 digits
+        st.info(f"📊 **Confidence Score: {confidence}%**")  
 
         # Remove uploaded image to keep folder clean
         if not use_sample and os.path.exists(save_path):
