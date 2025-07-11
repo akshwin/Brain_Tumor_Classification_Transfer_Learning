@@ -29,17 +29,17 @@ def run():
     
     # Title and Description
     st.markdown(
-        "<h1 style='text-align: center; color: #4CAF50;'>🧠 Brain Tumor Classification </h1>", 
+        "<h1 style='text-align: center; color: #4CAF50;'>🧠 Brain Tumor Classifier </h1>", 
         unsafe_allow_html=True
     )
     st.markdown(
-        "<p style='text-align: center;'>Upload an MRI image or use a sample image to detect the presence of a brain tumor.</p>", 
+        "<p style='text-align: center;'>Upload an MRI image or use a sample image to detect the type of brain tumor.</p>", 
         unsafe_allow_html=True
     )
     
     # Sidebar
     with st.sidebar:
-        st.markdown("## 🧠 Project Info")
+        st.markdown("## 🧠 Brain Tumor Classifier")
         st.markdown("""
         This application uses **deep learning models** to detect brain tumors from MRI images.  
         Powered by **Convolutional Neural Networks (CNNs) and Transfer learning** trained on real medical data.
@@ -88,7 +88,11 @@ def run():
                 st.error("❌ Sample image not found. Please ensure 'tumor-g.jpg' exists in the 'upload_image' folder.")
                 return
             save_path = sample_path
-            st.image(Image.open(save_path), caption='🖼 Sample MRI Scan', width=300)
+
+            # Center the sample image
+            col1, col2, col3 = st.columns([1, 2, 1])
+            with col2:
+                st.image(Image.open(save_path), caption='🖼 Sample MRI Scan', width=300)
         else:
             upload_dir = "./upload_image"
             os.makedirs(upload_dir, exist_ok=True)
@@ -96,6 +100,7 @@ def run():
             with open(save_path, "wb") as f:
                 f.write(img_file.getbuffer())
 
+            # Center the uploaded image
             col1, col2, col3 = st.columns([1, 2, 1])
             with col2:
                 st.image(Image.open(save_path), caption='🖼 Uploaded MRI Scan', width=300)
@@ -110,7 +115,7 @@ def run():
         else:
             st.success("✅ **No Tumor Detected**")
 
-        st.info(f"📊 **Confidence Score: {round(confidence, 2)}%**")
+        st.info(f"📊 **Confidence Score: {confidence}%**")  # Already rounded to 2 digits
 
         # Remove uploaded image to keep folder clean
         if not use_sample and os.path.exists(save_path):
